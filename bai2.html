@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function gcd(a, b) {
+            while (b !== 0) {
+                let temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+
+        function simplifyFraction(numerator, denominator) {
+            let divisor = gcd(numerator, denominator);
+            return [numerator / divisor, denominator / divisor];
+        }
+
+        function areFractionsEqual(numerator1, denominator1, numerator2, denominator2) {
+            let [simpleNumerator1, simpleDenominator1] = simplifyFraction(numerator1, denominator1);
+            let [simpleNumerator2, simpleDenominator2] = simplifyFraction(numerator2, denominator2);
+            return simpleNumerator1 === simpleNumerator2 && simpleDenominator1 === simpleDenominator2;
+        }
+
+        function main() {
+            let numerator1 = parseInt(prompt("Nhập tử số của phân số thứ nhất:"));
+            let denominator1 = parseInt(prompt("Nhập mẫu số của phân số thứ nhất:"));
+            let numerator2 = parseInt(prompt("Nhập tử số của phân số thứ hai:"));
+            let denominator2 = parseInt(prompt("Nhập mẫu số của phân số thứ hai:"));
+
+            if (isNaN(numerator1) || isNaN(denominator1) || isNaN(numerator2) || isNaN(denominator2)) {
+                console.log("Dữ liệu nhập vào không hợp lệ!");
+                return;
+            }
+
+            let result = areFractionsEqual(numerator1, denominator1, numerator2, denominator2);
+            console.log(`Phân số ${numerator1}/${denominator1} và ${numerator2}/${denominator2} có bằng nhau không? ${result}`);
+        }
+
+        main();
+    </script>
+</body>
+
+</html>

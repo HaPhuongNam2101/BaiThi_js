@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0)
+                return false;
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0)
+                    return false;
+            }
+            return true;
+        }
+        function inputArray() {
+            let n = parseInt(prompt("Nhập số lượng phần tử của mảng (n <= 50): "));
+            while (n > 50 || n <= 0) {
+                n = parseInt(prompt("Số lượng phần tử phải nhỏ hơn hoặc bằng 50 và lớn hơn 0. Vui lòng nhập lại: "));
+            }
+
+            let a = [];
+            for (let i = 0; i < n; i++) {
+                a.push(parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ": ")));
+            }
+            return a;
+        }
+        function filterPrimes(arr) {
+            let b = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (isPrime(arr[i])) {
+                    b.push(arr[i]);
+                }
+            }
+            return b;
+        }
+        function main() {
+            let a = inputArray();
+            console.log("Mảng vừa nhập: ", a);
+
+            let b = filterPrimes(a);
+            console.log("Mảng số nguyên tố: ", b);
+        }
+        main();
+    </script>
+</body>
+
+</html>

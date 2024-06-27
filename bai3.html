@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sổ Tiết Kiệm</title>
+</head>
+
+<body>
+    <h1>QUẢN LÝ SỔ TIẾT KIỆM</h1>
+    <table border="1" style="width: 500px; height: 300px; border-collapse: collapse;">
+        <tr id="id1">
+            <th colspan="2">Thông tin sổ tiết kiệm</th>
+        </tr>
+        <tr>
+            <th>Mã sổ</th>
+            <td><input type="text" id="maSo"></td>
+        </tr>
+        <tr>
+            <th>Loại tiết kiệm</th>
+            <td><input type="text" id="loaiTietKiem"></td>
+        </tr>
+        <tr>
+            <th>Họ tên khách hàng</th>
+            <td><input type="text" id="hoTenKH"></td>
+        </tr>
+        <tr>
+            <th>Chứng minh nhân dân</th>
+            <td><input type="number" id="cmnd"></td>
+        </tr>
+        <tr>
+            <th>Ngày mở sổ</th>
+            <td><input type="text" id="ngayMoSo"></td>
+        </tr>
+        <tr>
+            <th>Số tiền gửi</th>
+            <td><input type="number" id="soTienGui"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="addSoTietKiem()">Thêm</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table border="1" id="table-soTietKiem"></table>
+
+    <script src="SoTietKiem.js"></script>
+    <script src="ManageSavingsBooks.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
